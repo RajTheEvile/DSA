@@ -1,0 +1,13 @@
+442. Find All Duplicates in an Array
+
+
+class Solution(object):
+    def findDuplicates(self, nums):
+        dic={}
+        c=[]
+        for i in nums:
+            dic[i]=dic.get(i,0)+1
+        for i in dic:
+            if dic[i]>1:
+                c.append(i)
+        return c
