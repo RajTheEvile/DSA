@@ -1,0 +1,13 @@
+594. Longest Harmonious Subsequence
+
+
+class Solution(object):
+    def findLHS(self, nums):
+        num={}
+        for i in nums:
+            num[i]=num.get(i,0)+1
+        hs=0
+        for i in num:
+            if i+1 in num:
+                hs=max(hs,num[i]+num[i+1])
+        return hs
