@@ -1,0 +1,46 @@
+2130. Maximum Twin Sum of a Linked List
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def pairSum(self, head):
+        fast=slow=head
+        s=[]
+        max_twin_sum=0
+
+        while fast and fast.next:
+            fast=fast.next.next
+            s.append(slow)
+            slow=slow.next
+        
+        while slow:
+            max_twin_sum=max(max_twin_sum,s.pop().val+slow.val)
+            slow=slow.next
+
+        return max_twin_sum
+        
+        """n=0
+        temp=head
+        while temp:
+            n+=1
+            temp=temp.next
+        temp1=head
+        x=0
+        ele=[]
+        i=0
+        while temp1:
+            if i<(n+1)/2:
+                ele.append(temp1.val)
+            else:
+                sum=temp1.val+ele.pop()
+                if x<sum:
+                    x=sum
+            temp1=temp1.next
+            i=i+1
+
+        return x
+
+        """
