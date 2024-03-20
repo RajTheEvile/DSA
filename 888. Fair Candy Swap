@@ -1,0 +1,13 @@
+888. Fair Candy Swap
+
+class Solution(object):
+    def fairCandySwap(self, aliceSizes, bobSizes):
+        tal=sum(aliceSizes)
+        tob=sum(bobSizes)
+
+        etotal=(tal+tob)//2
+        for acandy in aliceSizes:
+            bcandy=acandy+(etotal-tal)
+            if bcandy in bobSizes:
+                return [acandy,bcandy]
+        
