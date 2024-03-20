@@ -1,0 +1,7 @@
+1030. Matrix Cells in Distance Order
+
+class Solution(object):
+    def allCellsDistOrder(self, rows, cols, rCenter, cCenter):
+        cells=[[i,j] for i in range(rows) for j in range(cols)]
+        dist=sorted(cells,key=lambda cell:abs(cell[0]-rCenter)+abs(cell[1]-cCenter))
+        return dist
