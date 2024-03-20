@@ -1,0 +1,28 @@
+725. Split Linked List in Parts
+
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def splitListToParts(self, head, k):
+        n=0
+        temp=head
+        while temp:
+            n+=1
+            temp=temp.next
+        
+        width,remainder=divmod(n,k)
+
+        result,curr=[],head
+        for i in range(k):
+            dummy=write=ListNode(0)
+            for _ in range(width+(i<remainder)):
+                if curr:
+                    write.next=write=ListNode(curr.val)
+                    curr=curr.next
+            result.append(dummy.next)
+
+        return result
