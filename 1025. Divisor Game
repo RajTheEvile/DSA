@@ -1,0 +1,5 @@
+1025. Divisor Game
+
+class Solution(object):
+    def divisorGame(self, n):
+        return not(n&1)
